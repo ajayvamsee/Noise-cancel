@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.audiotool.noisecancel.MainActivity"
     android:gravity="center_horizontal"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.audiotool.noisecancel.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,11 +16,11 @@
             android:id="@+id/Model"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Model: "
-            android:textSize="17sp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:text="Model: "
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/model_label"
@@ -45,7 +44,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" >
+        android:layout_marginTop="8dp">
 
         <Button
             android:id="@+id/new_recording"
@@ -67,10 +66,10 @@
     </LinearLayout>
 
     <View
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -109,8 +108,8 @@
                     android:id="@+id/play_original"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/original_file"
                     android:layout_below="@id/original_file"
+                    android:layout_alignLeft="@id/original_file"
                     android:text="Play" />
 
                 <Button
@@ -133,8 +132,8 @@
                     android:id="@+id/original_SV"
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
-                    android:layout_alignLeft="@id/play_original"
                     android:layout_below="@id/play_original"
+                    android:layout_alignLeft="@id/play_original"
                     android:layout_marginTop="4dp" />
             </RelativeLayout>
 
@@ -166,8 +165,8 @@
                     android:id="@+id/play_clean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/clean_file"
                     android:layout_below="@id/clean_file"
+                    android:layout_alignLeft="@id/clean_file"
                     android:text="Play" />
 
                 <Button
@@ -182,8 +181,8 @@
                     android:id="@+id/clean_SV"
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
-                    android:layout_alignLeft="@id/play_clean"
                     android:layout_below="@id/play_clean"
+                    android:layout_alignLeft="@id/play_clean"
                     android:layout_marginTop="4dp" />
             </RelativeLayout>
         </LinearLayout>
