@@ -21,11 +21,12 @@ import java.io.PrintStream;
 public class WavFile {
     private final static int BUFFER_SIZE = 4096;
 
-    ;
     private final static int FMT_CHUNK_ID = 0x20746D66;
     private final static int DATA_CHUNK_ID = 0x61746164;
     private final static int RIFF_CHUNK_ID = 0x46464952;
     private final static int RIFF_TYPE_ID = 0x45564157;
+    // Buffering
+    private final byte[] buffer;                    // Local buffer used for IO
     private File file;                        // File that will be read from or written to
     private IOState ioState;                // Specifies the IO State of the Wav File (used for snaity checking)
     private int bytesPerSample;            // Number of bytes required to store a single sample
@@ -41,11 +42,10 @@ public class WavFile {
     // Although a java int is 4 bytes, it is signed, so need to use a long
     private int blockAlign;                    // 2 bytes unsigned, 0x0001 (1) to 0xFFFF (65,535)
     private int validBits;                    // 2 bytes unsigned, 0x0002 (2) to 0xFFFF (65,535)
-    // Buffering
-    private byte[] buffer;                    // Local buffer used for IO
     private int bufferPointer;                // Points to the current position in local buffer
     private int bytesRead;                    // Bytes read after last read into local buffer
     private long frameCounter;                // Current number of frames read or written
+
     // Cannot instantiate WavFile directly, must either use newWavFile() or openWavFile()
     private WavFile() {
         buffer = new byte[BUFFER_SIZE];
@@ -345,7 +345,7 @@ public class WavFile {
     }
 
     public static double[] readWavFile(String filePath) {
-        double buffer[] = null;
+        double[] buffer = null;
         try {
             WavFile wavFile = openWavFile(new File(filePath));
             int frames = (int) wavFile.getNumFrames();

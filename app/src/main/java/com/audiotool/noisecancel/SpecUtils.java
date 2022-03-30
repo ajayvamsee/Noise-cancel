@@ -30,7 +30,7 @@ public class SpecUtils {
      * @param signal signal to calculate the STFT of
      * @return 2D stft matrix
      */
-    public static double[][] stft(double signal[]) {
+    public static double[][] stft(double[] signal) {
         int signalLength = signal.length;
         int windowSize = 512;
         int hopSize = 256;
@@ -69,7 +69,7 @@ public class SpecUtils {
      * @param signalLength length of the audio
      * @return the reconstructed audio signal
      */
-    public static double[] istft(double D[][], int signalLength) {
+    public static double[] istft(double[][] D, int signalLength) {
         int windowSize = 512;
         int hopSize = 256;
         int width = D.length;
@@ -103,7 +103,7 @@ public class SpecUtils {
      * @param signal the audio signal
      * @return array for input
      */
-    public static float[] forward(double signal[]) {
+    public static float[] forward(double[] signal) {
         double[][] D = stft(signal);
         int width = D.length, height = D[0].length / 2 + 1;
         int NUM_FRAME = 2;
@@ -154,7 +154,7 @@ public class SpecUtils {
      * @param signal       the original audio signal
      * @return the "clean" audio signal
      */
-    public static double[] backward(float outputTensor[], double signal[]) {
+    public static double[] backward(float[] outputTensor, double[] signal) {
         double[][] D = stft(signal);
         int width = D.length, height = D[0].length / 2 + 1;
         double r, p;

@@ -62,10 +62,10 @@ public class FileChooser extends AppCompatActivity {
     }
 
     private class FileAdapter extends ArrayAdapter<File> {
-        TextView fileName;
-        ImageButton delete_item;
         private final ArrayList<File> list;
         private final Context context;
+        TextView fileName;
+        ImageButton delete_item;
 
         public FileAdapter(Context context, ArrayList<File> list) {
             super(context, 0, files);

@@ -90,7 +90,7 @@ public class SpectrogramView extends SurfaceView {
                 int vWidth = mCanvas.getWidth();
                 int vHeight = mCanvas.getHeight();
                 mCanvas.translate(0, vHeight);
-                double D[][] = SpecUtils.stft(WavFile.readWavFile(filePath));
+                double[][] D = SpecUtils.stft(WavFile.readWavFile(filePath));
                 int width = D.length, height = D[0].length / 2 + 1;
                 float tileWidth = (float) vWidth / (float) width, tileHeight = (float) vHeight / (float) height;
                 double[][] Sxx = new double[width][height];

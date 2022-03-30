@@ -29,17 +29,7 @@ import java.util.Date;
 public class Recorder extends AppCompatActivity {
     public static final int RequestPermissionCode = 1;
     private static final String EXTRA_RECORDED_FILE = "com.wangeric3.android.ModelTest.recorded_file";
-
-    Button buttonStart, buttonStop, buttonSave;
-    TextView fileName;
-    Chronometer recordTime;
-    File saveDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Denoiser");
-    File originalDir = new File(saveDir.getAbsolutePath() + "/original");
-    File cleanDir = new File(saveDir.getAbsolutePath() + "/clean");
-    String audioFilePath = null;
-    Calendar cal = Calendar.getInstance();
-    private RecordWaveTask recordTask = null;
-    private BroadcastReceiver mBluetoothScoReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mBluetoothScoReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             int state = intent.getIntExtra(AudioManager.EXTRA_SCO_AUDIO_STATE, -1);
@@ -49,6 +39,15 @@ public class Recorder extends AppCompatActivity {
             }
         }
     };
+    Button buttonStart, buttonStop, buttonSave;
+    TextView fileName;
+    Chronometer recordTime;
+    File saveDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Denoiser");
+    File originalDir = new File(saveDir.getAbsolutePath() + "/original");
+    File cleanDir = new File(saveDir.getAbsolutePath() + "/clean");
+    String audioFilePath = null;
+    Calendar cal = Calendar.getInstance();
+    private RecordWaveTask recordTask = null;
 
     public static String decodeIntent(Intent result) {
         return result.getStringExtra(EXTRA_RECORDED_FILE);
@@ -77,12 +76,12 @@ public class Recorder extends AppCompatActivity {
     }
 
     private void initViews() {
-        buttonStart = (Button) findViewById(R.id.start_recording);
-        buttonStop = (Button) findViewById(R.id.stop_recording);
-        buttonSave = (Button) findViewById(R.id.save_recording);
+        buttonStart = findViewById(R.id.start_recording);
+        buttonStop = findViewById(R.id.stop_recording);
+        buttonSave = findViewById(R.id.save_recording);
 
-        fileName = (TextView) findViewById(R.id.file_name);
-        recordTime = (Chronometer) findViewById(R.id.record_time);
+        fileName = findViewById(R.id.file_name);
+        recordTime = findViewById(R.id.record_time);
 
         buttonStop.setEnabled(false);
         buttonStart.setEnabled(true);
@@ -148,7 +147,7 @@ public class Recorder extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String newName = input.getText().toString();
-                            if (newName.substring(newName.length() - 4, newName.length()).equals(".wav")) {
+                            if (newName.startsWith(".wav", newName.length() - 4)) {
                                 audioFilePath = originalDir.getAbsolutePath() + "/" + newName;
                                 fileName.setText(newName);
                             } else {
