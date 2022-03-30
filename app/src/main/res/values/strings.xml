@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Denoiser</string>
+    <string name="app_name">Noise Cancel</string>
+    <string name="record_new">Record New</string>
+    <string name="model">Model:</string>
+    <string name="none">None</string>
+    <string name="switchtext">Switch</string>
+    <string name="choose_file">Choose File</string>
+    <string name="original_audio">Original Audio</string>
+    <string name="no_file_chosen">No file chosen</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="run">Run</string>
+    <string name="noise_cancel_audio">Noise Cancel Audio</string>
 </resources>

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:text="Model: "
+            android:text="@string/model"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
             android:textSize="17sp" />
 
@@ -27,9 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/Model"
+            android:layout_toEndOf="@id/Model"
             android:scrollHorizontally="false"
-            android:text="None"
+            android:text="@string/none"
             android:textSize="15sp" />
 
         <Button
@@ -37,22 +37,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Switch"
+            android:text="@string/switchtext"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="8dp">
 
         <Button
             android:id="@+id/new_recording"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:padding="16dp"
-            android:text="Record New"
+            android:text="@string/record_new"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <Button
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Choose File"
+            android:text="@string/choose_file"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     </LinearLayout>
@@ -77,11 +77,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -92,7 +91,7 @@
                     android:id="@+id/original_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Original Audio"
+                    android:text="@string/original_audio"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                     android:textSize="16sp" />
 
@@ -101,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/original_label"
-                    android:text="No file chosen"
+                    android:text="@string/no_file_chosen"
                     android:textSize="15sp" />
 
                 <Button
@@ -109,36 +108,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/original_file"
-                    android:layout_alignLeft="@id/original_file"
-                    android:text="Play" />
+                    android:layout_alignStart="@id/original_file"
+                    android:text="@string/play" />
 
                 <Button
                     android:id="@+id/stop_original"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/play_original"
-                    android:layout_toRightOf="@id/play_original"
-                    android:text="Stop" />
+                    android:layout_toEndOf="@id/play_original"
+                    android:text="@string/stop" />
 
                 <Button
                     android:id="@+id/run"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/play_original"
-                    android:layout_toRightOf="@id/stop_original"
-                    android:text="Run" />
+                    android:layout_toEndOf="@id/stop_original"
+                    android:text="@string/run" />
 
                 <com.audiotool.noisecancel.SpectrogramView
                     android:id="@+id/original_SV"
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
                     android:layout_below="@id/play_original"
-                    android:layout_alignLeft="@id/play_original"
+                    android:layout_alignStart="@id/play_original"
                     android:layout_marginTop="4dp" />
             </RelativeLayout>
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -149,7 +147,7 @@
                     android:id="@+id/clean_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Denoised Audio"
+                    android:text="@string/noise_cancel_audio"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                     android:textSize="16sp" />
 
@@ -158,7 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/clean_label"
-                    android:text="No file chosen"
+                    android:text="@string/no_file_chosen"
                     android:textSize="15sp" />
 
                 <Button
@@ -166,23 +164,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/clean_file"
-                    android:layout_alignLeft="@id/clean_file"
-                    android:text="Play" />
+                    android:layout_alignStart="@id/clean_file"
+                    android:text="@string/play" />
 
                 <Button
                     android:id="@+id/stop_clean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/play_clean"
-                    android:layout_toRightOf="@id/play_clean"
-                    android:text="Stop" />
+                    android:layout_toEndOf="@id/play_clean"
+                    android:text="@string/stop" />
 
                 <com.audiotool.noisecancel.SpectrogramView
                     android:id="@+id/clean_SV"
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
                     android:layout_below="@id/play_clean"
-                    android:layout_alignLeft="@id/play_clean"
+                    android:layout_alignStart="@id/play_clean"
                     android:layout_marginTop="4dp" />
             </RelativeLayout>
         </LinearLayout>

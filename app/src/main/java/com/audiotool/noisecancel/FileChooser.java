@@ -38,13 +38,13 @@ public class FileChooser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_chooser);
 
-        backButton = (Button) findViewById(R.id.file_back);
+        backButton = findViewById(R.id.file_back);
 
         if (!saveDir.exists()) saveDir.mkdirs();
         if (!originalDir.exists()) originalDir.mkdirs();
         if (!cleanDir.exists()) cleanDir.mkdirs();
 
-        ListView storedFiles = (ListView) findViewById(R.id.list);
+        ListView storedFiles = findViewById(R.id.list);
 
         if (files != null) {
             FileAdapter adapter = new FileAdapter(this, files);
@@ -64,8 +64,8 @@ public class FileChooser extends AppCompatActivity {
     private class FileAdapter extends ArrayAdapter<File> {
         TextView fileName;
         ImageButton delete_item;
-        private ArrayList<File> list;
-        private Context context;
+        private final ArrayList<File> list;
+        private final Context context;
 
         public FileAdapter(Context context, ArrayList<File> list) {
             super(context, 0, files);
@@ -84,8 +84,8 @@ public class FileChooser extends AppCompatActivity {
 
             final File currentFile = getItem(position);
 
-            fileName = (TextView) listItemView.findViewById(R.id.list_file_name);
-            delete_item = (ImageButton) listItemView.findViewById(R.id.delete_file);
+            fileName = listItemView.findViewById(R.id.list_file_name);
+            delete_item = listItemView.findViewById(R.id.delete_file);
 
             String[] splitFile = currentFile.getAbsolutePath().split("/");
             final String name = splitFile[splitFile.length - 1];
